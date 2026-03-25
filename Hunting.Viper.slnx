@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Hunting.Viper.Api/Hunting.Viper.Api.csproj" />
+  <Project Path="Hunting.Viper.Domain/Hunting.Viper.Domain.csproj" />
+</Solution>
