@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Hunting.Viper.Domain\Hunting.Viper.Domain.csproj" />
+    <ProjectReference Include="..\Hunting.Viper.Data\Hunting.Viper.Data.csproj" />
   </ItemGroup>
 
 </Project>
