@@ -1,4 +1,5 @@
 ﻿using Hunting.Viper.Domain.Catalog;
+using Hunting.Viper.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hunting.Viper.Data
@@ -10,6 +11,7 @@ namespace Hunting.Viper.Data
         { }
 
         public DbSet<Item> Items { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
