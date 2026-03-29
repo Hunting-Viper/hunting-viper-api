@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Hunting.Viper.Domain.Catalog;
 using Hunting.Viper.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hunting.Viper.Api.Controllers
 {
@@ -57,9 +58,22 @@ namespace Hunting.Viper.Api.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult Put(int id, Item item)
+        public IActionResult PutItem(int id,[FromBody] Item item)
         {
-        return NoContent();
+            if (id != item.Id)
+            {
+                return BadRequest();
+            }
+
+            if (_db.Items.Find(id) == null)
+            {
+                return NotFound();
+            }
+
+            _db.Entry(item).State = EntityState.Modified;
+            _db.SaveChanges();
+
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
