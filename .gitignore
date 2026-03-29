@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 *.swp
 
 # Project: Hunting.Viper
+
+# exclude database files
+*.sqlite

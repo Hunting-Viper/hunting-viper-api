@@ -1,0 +1,15 @@
+@hostname = http://localhost:5031
+
+### GET all items
+GET {{hostname}}/catalog
+
+### POST a new item
+POST {{hostname}}/catalog
+Content-Type: application/json
+
+{
+    "name": "Shoes",
+    "description": "Ohio State shoes",
+    "brand": "Nike",
+    "price": 129.99
+}
