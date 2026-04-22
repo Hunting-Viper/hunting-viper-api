@@ -10,6 +10,17 @@ builder.Services.AddDbContext<StoreContext>(options =>
     options.UseSqlite("Data Source=../registrar.sqlite",
     b => b.MigrationsAssembly("Hunting.Viper.Api"))
 );
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -31,6 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.MapControllers();
 
