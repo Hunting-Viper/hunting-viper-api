@@ -13,3 +13,7 @@ Content-Type: application/json
     "brand": "Nike",
     "price": 129.99
 }
+
+curl --request POST \
+  --url http://localhost:5031/catalog \
+  --header 'authorization: Bearer {PUT_YOUR_TOKEN_HERE}'  \

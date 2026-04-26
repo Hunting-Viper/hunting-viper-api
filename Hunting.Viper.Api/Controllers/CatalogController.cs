@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Hunting.Viper.Domain.Catalog;
 using Hunting.Viper.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hunting.Viper.Api.Controllers
 {
@@ -77,6 +78,7 @@ namespace Hunting.Viper.Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize("delete:catalog")]
         public IActionResult Delete(int id)
         {
             var item = _db.Items.Find(id);
